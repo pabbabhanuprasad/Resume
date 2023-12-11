@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(136, 136, 250);
+            font-family: 'poppins',sans-serif;
+        }
+        .container{
+            padding:15px 10px 20px 10px;
+            height:500px;
+            width:425px;
+            background: white;
+            border-radius: 5px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        .hangman-body{
+            height:200px;
+            width:300px;
+            border:1px solid grey;
+            padding-bottom: 40px;
+            margin-left: 50px;
+            margin-top:20px;
+        }
+        .hangman.body>span:nth-child(1),
+        .hangman-body>span:nth-child(2),
+        .hangman-body>span:nth-child(3),
+        .hangman-body>span:nth-child(4),
+        .hangman-body>span:nth-child(5),
+        .hangman-body>span:nth-child(6),
+        .hangman-body>span:nth-child(7),
+        .hangman-body>span:nth-child(8){
+            height:2px;
+            width:30px;
+            background:black;
+            position:absolute;
+            margin-top: 170px;
+            margin-left: 15px;
+        }
+        .hangman-body >span:nth-child(1){
+            margin-left:12px;
+        }
+         .hangman-body >span:nth-child(2){
+            width:2px;
+            height:115px;
+            margin-top:15px;
+        }
+        .hangman-body>span:nth-child(3){
+            width:60px;
+            margin-top:15px;
+        }
+        .hangman-body>span:nth-child(3)::before{
+            content:"";
+            height:30px;
+            width:2px;
+            background: black;
+            position:absolute;
+            margin-left: 10px;
+            margin-top: -4px;
+            transform:rotate(45deg);
+            border-radius:30px;
+        }
+        .hangman-body>span:nth-child(4){
+            margin-top: 15px;
+            width:2px;
+            height:15px;
+            margin-left: 75px;
+        }
+        .hangman-body>span:nth-child(5){
+            width:30px;
+            height:30px;
+            background: white;
+            border-radius:100%;
+            border:2px solid black;
+            position:absolute;
+            margin-top: 11px;
+            margin-left: 73px;
+        }
+        .hangman-body>span:nth-child(6){
+            margin-top:40px;
+            margin-left:88px;
+            height:50px;
+            width:1px;
+        }
+        .hangman-body>span:nth-child(7),.hangman-body>span:nth-child(8){
+            width:1px;
+            height:30px;
+            transform:rotate(40deg);
+            margin-top: 52px;
+            margin-left: 78px;
+        }
+        .hangman-body>span:nth-child(8){
+            transform:rotate(-40deg);
+            margin-left: 98px;
+        }
+         #leg-one,#leg-two{
+            height:30px;
+            width:1px;
+            margin-left:78px;
+            margin-top:86px;
+            transform:rotate(40deg);
+            background: black;
+            position:absolute;
+        }
+        #leg-two{
+            transform:rotate(-40deg);
+            margin-left: 98px;
+        }
+        .guess-word{
+            height:60px;
+            width:100%;
+            margin-top:15px;
+            text-align: center;
+        }
+        .guess-word p{
+            font-size: 12px;
+        }
+        .guess-word>span:nth-child(2){
+            font-size:25px;
+            position:relative;
+            top:7px;
+            white-space: nowrap;
+            font-weight:200
+        }
+       .keyboard-box{
+            margin-top:10px;
+            height:100px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.5rem;
+            justify-content: center;
+        }
+          .keyboard-box .keyboard-btns{
+            all:unset;
+            background: #fff;
+            padding:5px;
+            border-radius:5px;
+            height:20px;
+            width:30px;
+            text-align: center;
+            margin-left: 6px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border:1px solid black;
+            cursor:pointer;
+            font-size: 15px;
+        }
+       .face,.stomach,.hand-one,.hand-two,#leg-one,#leg-two{
+            display:none;
+        }
+         .result-box{
+            height:500px;
+            width:425px;
+            background: white;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            border-radius:5px;
+             display:none; 
+        }
+        .message{
+            position:absolute;
+            top:37%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            font-size: 24px;
+        }
+        .result-box>span{
+            position:absolute;
+            top:46%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            white-space: nowrap;
+            font-size: 17px;
+        } 
+        .result-box>button{
+            all:unset;
+            padding:10px;
+            width:100px;
+            background: rgb(136, 136, 248);
+            color:black;
+            border-radius: 5px;
+            position:absolute;
+            top:61%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            text-align: center;
+            border:2px solid black;
+        }
+        .result-answer{
+            font-weight: 600;
+        }
+        .reset-btn{
+            all:unset;
+            background: rgb(136,136,250);
+            color:black;
+            border:1px solid black;
+            text-align: center;
+            padding:5px;
+            width:50px;
+            font-size: 12px;
+            float:right;
+            cursor:pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .wrong-guesses{
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="container">
+    <span class="wrong-quesses">Wrong Guesses:<span class="mistake" style="font-weight:600">0</span>of<span class="max-wrong" style="font-weight:600"></span></span>
+    <button class="reset-btn" onClick="reset()">Reset</button>
+    <div class="hangman-body">
+        <span class="base"></span>
+        <span class="pillar"></span>
+        <span></span>
+        <span></span>
+        <span class="face"></span>
+        <span class="stomach"></span>
+        <span class="hand-one"></span>
+        <span class="hand-two"></span>
+        <span id="leg-one"></span>
+        <span id="leg-two"></span>
+    </div>
+    <div class="guess-word">
+        <p>Guess the fruit Name</p>
+        <span class="wordSpotlight"></span>
+    </div>
+    <div class="keyboard-box"></div>
+   </div>
+
+   <div class="result-box">
+    <h1 class="message">You Win!</h1>
+    <span>The word was<span class="result-answer"></span></span>
+    <button class="new game-btn" onClick="newGame()">New Game</button>
+   </div>
+
+   <script>
+    let keyboardBox=document.querySelector('.keyboard-box');
+    let resultBox=document.querySelector('.result-box');
+    let message=document.querySelector('.message');
+    let result_box_answer=document.querySelector('.result-answer');
+    let max_wrong=document.querySelector('.max-wrong');
+
+    const fruits=["BANANA","APPLE","ORANGE","MANGO","GRAPES","PINEAPPLE","PAPAYA","WATERMELON","STRAWBERRY","POMEGRANATE"]
+
+    let answer="";
+    MaxWrong=7;
+    mistake=0;
+    guessed=[];
+    wordStatus=null;
+
+    let RandomWord=()=>{
+        answer=fruits[Math.floor(Math.random()*fruits.length)]
+    }
+
+    function generateButtons(){
+        let ButtonsWord='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter=>`
+        <button class="keyboard-btns" id='`+letter+`' onClick="Guess('`+letter+`')">'`+letter+`'</button>`).join('');
+        keyboardBox.innerHTML=ButtonsWord;
+    }
+
+    let Guess=(choosenLetter)=>{
+        guessed.indexOf(choosenLetter)===-1?guessed.push(choosenLetter):null;
+        document.getElementById(choosenLetter).setAttribute('disabled',true);
+        document.getElementById(choosenLetter).style.backgroundColor='#F5F5F5';
+        document.getElementById(choosenLetter).style.border='1px solid grey';
+        document.getElementById(choosenLetter).style.color='grey';
+
+        if(answer.indexOf(choosenLetter)>=0){
+            wordGuess();
+            GameWon();
+        }else if(answer.indexOf(choosenLetter)===-1){
+            mistake++;
+            mistakeUpdate();
+            GameLost();
+            hangmanUpdate();
+        }
+    }
+    let GameWon=()=>{
+        if(wordStatus===answer){
+            resultBox.style.display="block";
+            message.innerHTML='You Win!';
+            message.style.color='Green';
+            result_box_answer.innerHTML=answer;
+        }
+    }
+    let GameLost=()=>{
+        if(mistake===MaxWrong){
+            resultBox.style.display="block";
+            message.innerHTML='you Lost!';
+            message.style.color='red';
+            result_box_answer.innerHTML=answer;
+        }
+    }
+    let wordGuess=()=>{
+        wordStatus=answer.split('').map(letter=>(guessed.indexOf(letter)>=0?letter:" - ")).join('');
+        document.querySelector('.wordSpotlight').innerHTML=wordStatus;
+    }
+
+    let hangmanUpdate=()=>{
+        switch(mistake){
+            case 1:
+                document.querySelector('.face').style.display='block';
+                break;
+            case 2:
+                document.querySelector('.stomach').style.display='block';
+                break;
+            case 3:
+                document.querySelector('.hand-one').style.display='block';
+                break;
+            case 4:
+                document.querySelector('.hand-two').style.display='block';
+                break;
+            case 5:
+                document.querySelector('#leg-one').style.display='block';
+                break;
+            case 6:
+                document.querySelector('#leg-two').style.display='block';
+                break;    
+        }
+    }
+
+    let reset=()=>{
+        mistake=0;
+        guessed=[];
+        RandomWord();
+        wordGuess();
+        mistakeUpdate();
+        hangmanUpdate();
+        generateButtons();
+        document.querySelector('.face').style.display='none';
+        document.querySelector('.stomach').style.display='none';
+        document.querySelector('.hand-one').style.display='none';
+        document.querySelector('.hand-two').style.display='none';
+        document.querySelector('#leg-one').style.display='none';
+        document.querySelector('#leg-two').style.display='none';
+    }
+    let newGame=()=>{
+        resultBox.style.display='none';
+        reset();
+    }
+    let mistakeUpdate=()=>{
+        document.querySelector('.mistake').innerHTML=mistake;
+    }
+
+    max_wrong.innerHTML=MaxWrong;
+
+    RandomWord();
+    generateButtons();
+    wordGuess();
+
+   </script>
+</body>
+</html>

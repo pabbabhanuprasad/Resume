@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1f84b479e9.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .container{
+        background-color:red;
+      }
+        .login-form{
+            position:absolute;
+            border:1px solid black;
+            margin-top:50px;
+            margin-left:400px;
+            width:450px;
+            height:450px;
+            background: #fff;
+            border-radius: 10px;
+        }
+        .form-title{
+            padding:20px;
+            text-align: center;
+            font-size: larger;
+            font-weight:900;
+            background-color: rgb(179, 179, 245);
+            border-radius: 10px;
+            border:1px solid rgb(179, 179, 245)
+        }
+        .login-form .form-input{
+            margin:20px 0px;
+        }
+        /* .login-form .form-input label,
+        .login-form .captcha label{
+            display:block;
+            padding-bottom:20px;
+            font-size:15px;
+            padding-left:50px;
+            color:#111;
+            margin-bottom:10px;
+        } */
+        .captcha label{
+          margin-left:20px;
+        }
+        .login-form .form-input input{
+            width:90%;
+            padding:10px;
+            margin:10px;
+            outline:none;
+            border-radius: 4px;
+            border:1px solid #888;
+            font-size:15px;
+        }
+        .login-form .captcha{
+            margin:15px 0px;
+        }
+        .login-form .captcha .preview{
+          color:#555;
+          width:90%;
+          text-align: center;
+          height:40px;
+          line-height: 40px;
+          letter-spacing: 8px;
+          border:1px dashed #888;
+          border-radius: 4px;
+          font-family: "monospace";
+          margin-left:20px;
+        }
+       .login-form .captcha .preview span{
+        display:inline-block;
+        user-select: none;
+       }
+       .login-form .captcha .captcha-form{
+        display:flex;
+        margin-left:20px;
+       }
+       .login-form .captcha .captcha-form input{
+        width:84%;
+        outline:none;
+        padding:8px;
+        border-radius:4px;
+        border:1px solid #888;
+       }
+       #login-btn{
+        margin-top:5px;
+        margin-left:20px;
+        padding:12px;
+        width:90%;
+        border:none;
+        outline:none;
+        font-size: 15px;
+        text-transform: uppercase;
+        background: #0d41bb;
+        color:#fff;
+        border-radius: 5px;
+        cursor:pointer;
+        transition:.3s;
+       }
+
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
+        <div class="form-title">Login</div>
+        <div class="form-input">
+          <lable for="username">Username</lable>
+          <input type="text" id="username" />
+        </div>
+        <div class="form-input">
+          <lable for="password">Password</lable>
+          <input type="password" id="password" />
+        </div>
+        <div class="captcha">
+          <lable for="captcha-input">Enter Captcha</lable>
+          <div class="preview"></div>
+          <div class="captcha-form">
+            <input
+              type="text"
+              id="captcha-form"
+              placeholder="enter captcha text"
+            />
+            <button class="captcha-refresh">
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+          </div>
+        </div>
+        <div class="form-input">
+          <button id="login-btn">Login</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(){
+          const fonts=["cursive","sans-serif","serif","monospace"];
+          let captchaValue="";
+          function generateCaptcha(){
+              let value=btoa(Math.random()*1000000000);
+              value=value.substr(0,5+Math.random()+5);
+              captchaValue=value;
+          }
+          function setCaptcha(){
+              let html=captchaValue.split("").map((char)=>{
+                  const rotate=-20+(Math.random()*30);
+                  const font=(Math.random()*fonts.length);
+                  return `<span style="transform:rotate(${rotate}deg);
+                  font-family:${fonts[font]}">${char}</span>`;}).join("");
+                  document.querySelector(".login-form .captcha .preview").innerHTML=html;
+              }
+
+              function initCaptcha(){
+                document.querySelector('.captcha-refresh').addEventListener('click',
+                function(){
+                    generateCaptcha();
+                    setCaptcha();
+                });
+                generateCaptcha();
+                setCaptcha();
+              }
+              initCaptcha();
+
+              document.querySelector('.login-form #login-btn').addEventListener('click',
+              function(){
+                let inputCaptchaValue=document.querySelector('.captcha input').value;
+                if(inputCaptchaValue===captchaValue){
+                    swal('','Logging In!','success');
+                }else{
+                    swal('Invalid captcha');
+                }
+              })
+              })();
+
+            //   const person=[
+            //     {
+            //     fname:"Bhanu",
+            //     lname:"prasad"
+            //     },
+            //     "newSting",
+            //     false,
+            //     true,
+            //     3,4,
+            //     null,
+            //     undefined
+            // ]
+            // console.log(typeof(person));
+            // const person1=
+            //   {
+            //     fname:"Bhanu",
+            //     lname:"prasad"
+            //     }
+            // console.log(typeof(person1));
+
+            // console.log(3)
+            // console.log(typeof(3));
+            // console.log("3");
+            // console.log(typeof("3"));
+            // console.log(3+"3");
+            // console.log(typeof(3+"3"));
+            // console.log(3+ +"3");
+            // console.log(typeof(3+ +"3"));
+
+            let currentDate=new Date();
+            console.log(currentDate);
+    </script>
+  </body>
+</html>

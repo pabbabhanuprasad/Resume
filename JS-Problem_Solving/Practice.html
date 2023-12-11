@@ -9,23 +9,23 @@
 
   <body>
     <script>
-      function SecondLargestNumber(){
-          let a1=["A","B","C","D","E"];
-          let a2=a1.sort((min,max)=>{return min-max});
-          console.log(a2);
-          let n = a2.length;
-          let temp = a2[n - 1];
-          let final = 0;
-          for (i = n - 1; i >= 0; i--) {
-              if (temp != a2[i]) {
-              final = a2[i];
-                  break;
-              }
-          }
-          console.log(final);
-          document.write("Second Largest Number: ",final)
-      }
-      SecondLargestNumber()
+      // function SecondLargestNumber(){
+      //     let a1=["A","B","C","D","E"];
+      //     let a2=a1.sort((min,max)=>{return min-max});
+      //     console.log(a2);
+      //     let n = a2.length;
+      //     let temp = a2[n - 1];
+      //     let final = 0;
+      //     for (i = n - 1; i >= 0; i--) {
+      //         if (temp != a2[i]) {
+      //         final = a2[i];
+      //             break;
+      //         }
+      //     }
+      //     console.log(final);
+      //     document.write("Second Largest Number: ",final)
+      // }
+      // SecondLargestNumber()
 
       // function SecondLargestNumber() {
       //   let a1 = [10, 40, 30, 20, 50];
@@ -116,8 +116,8 @@
       //output:POLO
     </script>
     <script>
-      console.log([] == ![]);
-      console.log([] == []);
+      // console.log([] == ![]);
+      // console.log([] == []);
     </script>
 
     <script>
@@ -155,14 +155,14 @@
       console.log(currentDate);
     </script> -->
     <script>
-      function check(a, b) {
-        if (a == 15 || b == 15 || a + b == 15) {
-          return console.log("true");
-        } else {
-          return console.log("false");
-        }
-      }
-      check(15, 15);
+      // function check(a, b) {
+      //   if (a == 15 || b == 15 || a + b == 15) {
+      //     return console.log("true");
+      //   } else {
+      //     return console.log("false");
+      //   }
+      // }
+      // check(15, 15);
 
       // function array(arr){
       //   for(i=0;i<arr.length;i++){
@@ -271,19 +271,19 @@
 
       // console.log(x);
 
-      function sortingArray(arr4) {
-        for (i = 0; i < arr4.length; i++) {
-          for (j = i + 1; j < arr4.length; j++) {
-            if (arr4[i] > arr4[j]) {
-              temp = arr4[i];
-              arr4[i] = arr4[j];
-              arr4[j] = temp;
-            }
-          }
-        }
-        return arr4;
-      }
-      console.log(sortingArray([24, 946, 3, 7890, 1]));
+      // function sortingArray(arr4) {
+      //   for (i = 0; i < arr4.length; i++) {
+      //     for (j = i + 1; j < arr4.length; j++) {
+      //       if (arr4[i] > arr4[j]) {
+      //         temp = arr4[i];
+      //         arr4[i] = arr4[j];
+      //         arr4[j] = temp;
+      //       }
+      //     }
+      //   }
+      //   return arr4;
+      // }
+      // console.log(sortingArray([24, 946, 3, 7890, 1]));
 
       // function countOccurence(n){
       //   let arr=[2,3,4,2,5,6,2,8,2,7];
@@ -305,18 +305,79 @@
       // }
       // printTable(2,10);
 
-    
-        for (let i = 1; i <= 5; i++) {
-          let pattern = " ".repeat(5 - i) + "*".repeat(2 * i - 1);
-          console.log(pattern);
-        }
+      // for (let i = 1; i <= 5; i++) {
+      //   let pattern = " ".repeat(5 - i) + "*".repeat(2 * i - 1);
+      //   console.log(pattern);
+      // }
 
+      // for (let i = 5; i <= 1; i--) {
+      //   let pattern = " ".repeat(5 - i) + "*".repeat(2 * i - 1);
+      //   console.log(pattern);
+      // }
+      // function random(n) {
+      //   let str = "banjaravithunaatannagunju";
+      //   let result = "";
+      //   for (i = 0; i <= n; i++) {
+      //     let randomIndex = Math.floor(Math.random() * str.length);
+      //     result += str.charAt(randomIndex);
+      //   }
+      //   return result;
+      // }
+      // let n = 10;
+      // let b = random(n);
+      // console.log(b);
+
+      // function sort(arr) {
+      // let arr1 = [];
+      // function sort(arr) {
+      //   for (let i = 0; i < arr.length; i++) {
+      //     if (arr[i] > arr[i + 1]) {
+      //       var arr1 = arr[i];
+      //       arr[i] = arr[i + 1];
+      //       arr[i + 1] = arr1;
+      //     }
+      //   }
+      //   console.log(arr[arr.length - 1]);
+      // }
+      // sort([2, 5, 4, 8, 12, 15, 18]);
+
+      // console.log("B"-"A");
+      // console.log("2"-2);
+      // console.log("2"+2);
+      // console.log(typeof("2"+2));
+      // console.log(2+ +"2");
+      // console.log(typeof(2+ +"2"));
+
+      //   function reverseStringsInArray(arr) {
+      //     const reversedArray = arr.map((str) =>
+      //       str.split("").reverse().join("")
+      //     );
+      //     console.log(reversedArray);
+      //   }
+
+      //  reverseStringsInArray(["ONE","TWO","THREE"]);
+
+      // function stringReverse(arr) {
+      //   var outputArr = [];
+      //   var reversedString = [];
+      //   for (let a = 0; a < arr.length; a++) {
+      //     for (i = arr[a].length - 1; i >= 0; i--) {
+      //       reversedString += arr[a][i];
+      //     }
+      //   }
+      //   console.log(reversedString);
+      // }
+      // stringReverse(["ONE", "TWO", "THREE"]);
+
+      let a=["ONE", "TWO", "THREE"];
+      for(i=0;i<a.length;i++){
+        let c="";
+        for(j=a[i].length-1;j>=0;j--){
+          c+=a[i][j]
+        }
         
-        // for (let i = 5; i <= 1; i--) {
-        //   let pattern = " ".repeat(5 - i) + "*".repeat(2 * i - 1);
-        //   console.log(pattern);
-        // }
-      
+      console.log(c);
+      }
     </script>
   </body>
 </html>

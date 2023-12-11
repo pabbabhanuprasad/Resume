@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Generate</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>OTP Verification</h1>
+      <p>Enter the OTP sent to your mobile number</p>
+      <div class="opt-input">
+        <input type="text" id="generateOTP" name="Generated OTP" placeholder="Generated OTP">
+    <button onclick="updateInputValue()">Get OTP</button>
+        <input
+          type="text"
+          id="otp"
+          maxlength="8"
+          placeholder="Enter OPT"
+        /><br />
+        <button type="button" id="verify-button">Verify</button>
+      </div>
+      <p id="error-message" class="error-message"></p>
+    </div>
+
+    <script>
+      function generateOTP() {
+        return Math.floor(1000 + Math.random() * 9000);
+      }
+
+      const otp = generateOTP();
+      console.log(otp);
+      const verifyButton = document.getElementById("verify-button");
+      const otpInput = document.getElementById("otp");
+      const errorMessage = document.getElementById("error-message");
+
+      function updateInputValue() {
+            var inputElement = document.getElementById("generateOTP");
+            var newValue = otp;
+            inputElement.value = newValue;
+        }
+
+      verifyButton.addEventListener("click", () => {
+        const userOTP = otpInput.value;
+
+        if (userOTP === "") {
+          errorMessage.textContent = "Please Enter The OTP";
+        } else if (userOTP === otp.toString()) {
+          errorMessage.textContent = "OTP verified Successfully";
+        } else {
+          errorMessage.textContent = "Invalid OTP. Please try again";
+        }
+      });
+    </script>
+  </body>
+</html>
