@@ -1,15 +1,17 @@
-const express=require('express');
-const app=express()
+const express = require("express");
+const app = express();
 
-const db=require("./models");
+// Import Routers
+const postRouter = require('./routes/Posts');
 
-db.sequelize.sync().then(()=>{
-    app.listen(3001,()=>{
-        console.log("Our server is running at 3001 port")
+// Middleware
+app.use(express.json());
+app.use('/posts', postRouter); // Use postRouter for /posts endpoint
+
+const db = require("./models");
+
+db.sequelize.sync().then(() => {
+    app.listen(3002, () => {
+        console.log("Our server is running at 3002 port");
     });
-})
-
-
-
-
-
+});
