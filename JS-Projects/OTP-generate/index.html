@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -53,4 +53,53 @@
       });
     </script>
   </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Array Element Display</title>
+</head>
+<body>
+
+<p>Original Array: <span id="originalArray"></span></p>
+<p>New Array: <span id="newArray"></span></p>
+
+<script>
+  // Arrays to store elements
+  let originalArray = ['A', 'B', 'C', 'D', 'E','F','G','H'];
+  let newArray = [];
+
+  // Function to generate random element and push to new array
+  function generateRandomElement() {
+    if (originalArray.length === 0) {
+      document.getElementById('newArray').textContent = 'null';
+    } else {
+      // Display original array before generating
+      document.getElementById('originalArray').textContent = originalArray.join(', ');
+
+      // Generate a random index
+      const randomIndex = Math.floor(Math.random() * originalArray.length);
+      // Get the random element
+      const randomElement = originalArray[randomIndex];
+      // Remove the element from the original array
+      originalArray.splice(randomIndex, 1);
+      // Push the element to the new array
+      newArray.push(randomElement);
+
+      // Update displayed arrays
+      document.getElementById('originalArray').textContent = originalArray.join(', ');
+      document.getElementById('newArray').textContent = newArray.join(', ');
+    }
+  }
+
+  // Set interval to call the function every 2 seconds (adjust as needed)
+  setInterval(generateRandomElement, 2000);
+</script>
+
+</body>
 </html>
+

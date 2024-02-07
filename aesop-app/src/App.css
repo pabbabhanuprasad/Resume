@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+}
+
+
+.paraContainer {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+.para {
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  font-family: "Zapf Humanist", serif;
+  font-size: 30px;
+  font-weight: 400;
+  height: 80px;
+  line-height: 40px;
+  margin-block-end: 20px;
+  margin-block-start: 0px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-size-adjust: 100%;
+  width: 600px;
+  -webkit-font-smoothing: antialiased;
+}
+.gridContainer{
+  background-color:rgb(243, 242, 217);
+  width:100%;
+  height:300px;
+  display:grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

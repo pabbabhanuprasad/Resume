@@ -6,11 +6,11 @@ let container=document.querySelector('.conatiner');
 let generateBarcode=()=>{
     container.classList.add('active');
     setTimeout(()=>{
-        JsBarcode('#barcode',userInput.value,{
+        jsBarcode('#barcode',userInput.value,{
             background:"white",
             lineColor:"black",
         });
-    },200)
+    },2000)
 }
 
 generateBtn.addEventListener('click',()=>{

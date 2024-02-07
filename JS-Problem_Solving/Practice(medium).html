@@ -154,25 +154,25 @@ Input: [1,6,3,1,5,9,7,2,1,9,3,7,8,9,10] , no find=7
 				   3 present 2 times.
  				   5 present 1 times …….  Etc -->
     <script>
-      // function countOccurences(arr) {
-      //   arr.sort();
-      //   let unique = [];
-      //   for (let i = 0; i < arr.length; i++) {
-      //     if (!unique.includes(arr[i])) {
-      //       unique[unique.length] = arr[i];
-      //       let count = 1;
-      //       for (let j = i + 1; j < arr.length; j++) {
-      //         if (arr[j] == arr[i]) {
-      //           count++;
-      //         }
-      //       }
-      //       console.log(arr[i] + " presenets " + count + " times");
-      //     } else {
-      //     }
-      //   }
-      // }
-      // let arr = [1, 6, 3, 1, 5, 9, 7, 2, 1, 9, 3, 7, 8, 9, 10];
-      // countOccurences(arr);
+      function countOccurences(arr2) {
+        arr2.sort();
+        let unique = [];
+        for (let i = 0; i < arr2.length; i++) {
+          if (!unique.includes(arr2[i])) {
+            unique[unique.length] = arr2[i];
+            let count = 1;
+            for (let j = i + 1; j < arr2.length; j++) {
+              if (arr2[j] == arr2[i]) {
+                count++;
+              }
+            }
+            console.log(arr2[i] + " presenets " + count + " times");
+          } else {
+          }
+        }
+      }
+      let arr2 = [1, 6, 3, 1, 5, 9, 7, 2, 1, 9, 3, 7, 8, 9, 10];
+      countOccurences(arr2);
     </script>
 
     <script>

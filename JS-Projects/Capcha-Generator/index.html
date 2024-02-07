@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Captcha Generator</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            background:#9370DB;
+            font-family:'poppins',sans-serif;
+        }
+        .container{
+            padding:20px;
+            width:360px;
+            background:white;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            border-radius:7px;
+            height:345px;
+            transition:all .2s;
+        }
+        .container .active{
+            height:370px;
+        }
+        .container .title{
+            text-align:center;
+            font-size:20px;
+            letter-spacing:1px;
+            position:relative;
+            top:7px;
+            margin-bottom: 30px;
+        }
+        .container .captcha-box{
+            height:55px;
+            width:270px;
+            border-radius:7px;
+            border:1px solid black;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 35px;
+            margin:auto;
+        }
+        .container .captcha-box img{
+            height:56px;
+            width:300px;
+            border-radius:7px;
+        }
+        .container .captcha-box h4{
+            position:absolute;
+            font-size:23px;
+            letter-spacing:2px;
+            color:lightgrey;
+            text-decoration: line-through;
+            color:#6309fdcc;
+        }
+        .container input{
+            all:unset;
+            height:42px;
+            width:210px;
+            border:1px solid grey;
+            padding-left:15px;
+            margin-left: 45px;
+            border-radius:5px;
+            margin-top:6px;
+            font-size:15px;
+        }
+        .container button{
+            all:unset;
+            height:5px;
+            padding:15px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#9370DB;
+            border:2px solid black;
+            border-radius: 5px;
+            white-space: nowrap;
+            margin-top: 7px;
+            font-size: 15px;
+            margin-left:70px;
+        }
+        .container .check-btn{
+            margin-left:115px;
+            margin-top: 38px;
+        }
+        .container .message{
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            display:none;
+            transition:all .2s;
+        }
+        .container .message .incorrect{
+            color:red;
+            transition:all .2s;
+        }
+        .container .message .correct{
+            color:green;
+            transition:all .2s;
+        }
+        ::selection{
+            background:rgb(100,149,237,0.8);
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Captcha Generator</h2>
+        <div class="captcha-box">
+           
+            <h4 class="captcha"></h4>
+        </div>
+        <input type="text" placeholder="enter the Captcha"/>
+        <button class="check-btn">Check</button>
+        <button class="generate-btn">Generate Captcha</button>
+        <p class="message"></p>
+    </div>
+
+    <script>
+        let captchaTxt=document.querySelector('.container .captcha-box h4');
+        let userInput=document.querySelector('.container .user-input');
+        let checkBtn=document.querySelector('.check-btn');
+        let generateBtn=document.querySelector('.generate-btn');
+        let container=document.querySelector('.container');
+        let message=document.querySelector('.container .message');
+
+
+        let captchaCharacter=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+        'S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+        'o','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9];
+
+        let  generateCaptcha=()=>{
+            captchaTxt.innerHTML='';
+            for(let i=0;i<6;i++){
+                let captcha=captchaCharacter[Math.floor(Math.random()*captchaCharacter.length)];
+                captchaTxt.innerHTML+=''+captcha;
+            }
+            userInput.value='';
+            message.style.display='none';
+            container.classList.remove('active');
+        }
+
+        let check=()=>{
+            let userAnswer=userInput.value;
+            let captcha=captchaTxt.innerHTML;
+            if(userAnswer.replaceAll(' ','')==captcha.replaceAll(' ','')){
+                container.classList.add('active');
+                message.style.display='block';
+                message.innerHTML='<span class="material-symbols-outlined">check_circle</span>';
+                message.classList.remove('incorrect');
+                message.classList.add('correct');
+            }else{
+                message.style.display='block';
+                container.classList.add('active');
+                message.innerHTML='<i class="fa-solid fa-triangle-exclamation">Captcha not Matched</i>';
+                message.classList.remove('correct');
+                message.classList.add('incorrect');
+            }
+        }
+
+        generateCaptcha();
+        generateBtn.addEventListener('click',generateCaptcha);
+        checkBtn.addEventListener('click',()=>{
+            if(userInput.value !=''){
+                check();
+            }else{
+                alert('Please enter the captcha first!');
+            }
+        });
+    </script>
+</body>
+</html>

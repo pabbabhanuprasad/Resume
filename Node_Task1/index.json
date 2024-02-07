@@ -1,0 +1,40 @@
+[
+  {
+    "username": "bhanu",
+    "password": "$2b$10$TpN.epe.BhtqidZvH.HthO6vYq5LTwyqC6AjKKTy67nhku./l5CfK",
+    "DOB": "01-01-1998"
+  },
+  {
+    "username": "bdhjsajr",
+    "password": "$2b$10$Po7RLH.Lywzu5ayrg4HV2.Wjo6ILcRIVIHMz2W7CAEv.J.tSq7o26",
+    "DOB": "01-02-1998"
+  },
+  {
+    "username": "bdhjsajr",
+    "password": "$2b$10$TnAvtMz3is0FvZaNL7PAX.EkcPytJJzU3lsOru/Da4HQHJkR4UMjy",
+    "DOB": "01-02-1998"
+  },
+  {
+    "username": "bdhjsajr",
+    "password": "12gsaj3",
+    "DOB": "01-02-1998"
+  },
+  {
+    "username": "bdhjsajr",
+    "password": "$2b$10$OOGAqtEvqqmVJlKpv/iFzeI0vI2MnonZOsIDpU7zTUlkN.IxmuEQa",
+    "DOB": "01-02-1998",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJkaGpzYWpyIiwiRE9CIjoiMDEtMDItMTk5OCIsImlhdCI6MTcwNjg2NDcyMywiZXhwIjoxNzA2ODY4MzIzfQ.dpTtRTXQDNoKY4VmPSLFHTkDj0dgQw1w6c5aND7NfB0"
+  },
+  {
+    "username": "bdhjsajr",
+    "password": "$2b$10$8mcq.WLSO4XBAB29NzypF.9Qt8vySHOv0evv/sOQwybjqFTuypZlO",
+    "DOB": "01-02-1998",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJkaGpzYWpyIiwiRE9CIjoiMDEtMDItMTk5OCIsImlhdCI6MTcwNjg2NDg1MiwiZXhwIjoxNzA2ODY4NDUyfQ.TxFJUMXEIhcNsHO2L2UtaAq0TYr-E7p73_0jb2Copdw"
+  },
+  {
+    "username": "bdhjsajr",
+    "password": "$2b$10$oLfSOMfiHkRjUvwOlhO21.0wAql9.VmitLX3ZH5WwTI3ZGX8wY4rO",
+    "DOB": "01-02-1998",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJkaGpzYWpyIiwiRE9CIjoiMDEtMDItMTk5OCIsImlhdCI6MTcwNjg2NTE1NCwiZXhwIjoxNzA2ODY4NzU0fQ.NISNZn_pFgcdmKMQ6t9Bajc_qbdieoPuP2AXWr-8reI"
+  }
+]

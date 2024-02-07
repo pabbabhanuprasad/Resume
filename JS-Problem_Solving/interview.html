@@ -100,18 +100,77 @@
 
       // console.log(extractNumbersFromString("test2.core4"));
 
-      function extractNumbersFromString(str) {
-        //const regex=/\d+/g;
-        const alphabetRegex = /[a-zA-Z]/g;
-        let arr1 = [];
+      // function extractNumbersFromString(str) {
+      //   //const regex=/\d+/g;
+      //   const alphabetRegex = /[a-zA-Z]/g;
+      //   let arr1 = [];
 
-        for (i = 0; i < str.length; i++) {
-          if (str[i] !== alphabetRegex) {
-            return arr1.push(str[i]);
+      //   for (i = 0; i < str.length; i++) {
+      //     if (str[i] !== alphabetRegex) {
+      //       return arr1.push(str[i]);
+      //     }
+      //   }
+      // }
+      // console.log(extractNumbersFromString("test2.core4"));
+
+      // let arr = [3, 9, 7, 5, 8];
+      //   for (let i = 0; i < arr.length; i++) {
+      //     for (let j = i + 1; j < arr.length; j++) {
+      //       if (arr[i] > arr[j]) {
+      //         temp = arr[i];
+      //         arr[i] = arr[j];
+      //         arr[j] = temp;
+      //       }
+      //     }
+      //   }
+      // console.log(arr);
+      // console.log(arr[arr.length-2]);
+
+      // function countQualifyingNumbers(n, m) {
+
+      // var qualifyingNumbers = [];
+      // var arr=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+      // var n=arr[0];
+      //  var m=arr[arr.length-1];
+      // for (let i = n; i <= m; i++) {
+      //   qualifyingNumbers.push(i);
+      // }
+      // const count = qualifyingNumbers.length-1;
+
+      // console.log(count);
+
+      function countPrizeWinners(k, n, marks) {
+        // Sort the marks in descending order
+        marks.sort((a, b) => b - a);
+
+        // Initialize the count of prize winners
+        let prizeWinnersCount = 0;
+
+        // Iterate through the sorted marks
+        for (let i = 0; i < n; i++) {
+          // Check if the current student's mark is greater than or equal to the kth rank
+          if (marks[i] >= marks[k - 1] && marks[i] > 0) {
+            prizeWinnersCount++;
+          } else {
+            break; // Stop checking further since marks are sorted in descending order
           }
         }
+
+        // Print the count of prize winners
+        console.log(prizeWinnersCount);
       }
-      console.log(extractNumbersFromString("test2.core4"));
+
+      // Example usage:
+      const k = 2;
+      const n = 4;
+      const marks = [100, 50, 50, 25];
+
+      countPrizeWinners(k, n, marks);
+
+      //}
+
+      // const result = countQualifyingNumbers(n, m);
+      // console.log(`Count of qualifying numbers: ${result}`);
     </script>
   </body>
 </html>
