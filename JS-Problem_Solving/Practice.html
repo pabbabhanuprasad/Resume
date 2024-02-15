@@ -369,15 +369,59 @@
       // }
       // stringReverse(["ONE", "TWO", "THREE"]);
 
-      let a=["ONE", "TWO", "THREE"];
-      for(i=0;i<a.length;i++){
-        let c="";
-        for(j=a[i].length-1;j>=0;j--){
-          c+=a[i][j]
+      // let a=["ONE", "TWO", "THREE"];
+      // for(i=0;i<a.length;i++){
+      //   let c="";
+      //   for(j=a[i].length-1;j>=0;j--){
+      //     c+=a[i][j]
+      //   }
+
+      // console.log(c);
+      // }
+
+      // var a = [552, 212, 3771, 117];
+      // var b = [];
+      // for (let i = 0; i < a.length; i++) {
+      //   let maxCount = 1;
+      //   for (let j = 0; j < a[i].length; j++) {
+      //     for (let k = j + 1; k < a[i].length; k++) {
+      //       if (a[i[j]] == a[i[k]]) {
+      //         maxCount++;
+      //       }
+      //       if (a[i].includes(maxCount)) {
+      //         b.push(a[i]);
+      //       }
+      //     }
+      //   }
+
+      // }
+      // console.log(b);
+
+      var a = [552, 212, 3771, 117];
+      var b = [];
+
+      for (let i = 0; i < a.length; i++) {
+        let num = a[i].toString(); 
+        let maxCount = 1;
+
+        for (let j = 0; j < num.length; j++) {
+          let currentCount = 1;
+
+          for (let k = j + 1; k < num.length; k++) {
+            if (num[j] === num[k]) {
+              currentCount++;
+            }
+          }
+          if (currentCount > maxCount) {
+            maxCount = currentCount;
+          }
         }
-        
-      console.log(c);
+        if (num.includes(maxCount.toString())) {
+          b.push(a[i]);
+        }
       }
+
+      console.log(b);
     </script>
   </body>
 </html>
